@@ -70,18 +70,16 @@ i {
 }
 
 .cards {
-  display: flex;
-  margin-top: 50px;
-  padding: 20px;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 300px;
-  width: calc(100% - 300px);
-}
-
-.card {
-  margin-right: 20px;
-  width: 18rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 450px;
+  width: calc(100% - 450px);
+  box-sizing: border-box;
+  align-items: start;
+  
 }
 
 @media (max-width: 768px) {
@@ -91,15 +89,12 @@ i {
     position: relative;
   }
 
-  .cards {
-    margin-left: 0;
-    width: 100%;
-    justify-content: center;
-  }
-
   .card {
+    border: none;
     width: 100%;
     margin-right: 0;
+    width: 18rem;
+    margin: 0;
   }
 
   .text {
@@ -126,16 +121,13 @@ i {
   height: 200px;
 }
 
-.card{
-  border: none;
-}
 
-.card:hover{
-  transform:translate(0px, -20px);
+.card:hover {
+  transform: translate(0px, -20px);
   transition: 1s;
 }
 
-#btn-secundary{
+#btn-secundary {
   display: block;
   justify-content: center;
   background-color: #003b2b;
@@ -143,21 +135,20 @@ i {
   border: none;
 }
 
-#btn-secundary:hover{
+#btn-secundary:hover {
   background-color: #08916a;
-  
 }
 
-.container2{
+.container2 {
   height: 92vh;
   display: flex;
   flex-direction: column;
   color: white;
-  align-items: center;     /* Centraliza verticalmente */
+  align-items: center; /* Centraliza verticalmente */
   justify-content: center; /* Centraliza horizontalmente */
 }
 
-.circle-hort{
+.circle-hort {
   width: 200px;
   height: 200px;
   background-color: white;
@@ -166,11 +157,9 @@ i {
   background-position: center;
 }
 
-
-
 .formHortalicas {
   display: flex;
-  flex-direction: row;  /* Campos um abaixo do outro */
+  flex-direction: row; /* Campos um abaixo do outro */
   width: 400px;
   padding: 30px;
   background-color: #fff;
@@ -179,11 +168,9 @@ i {
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-
 }
 
-
-.circle-fert{
+.circle-fert {
   width: 200px;
   height: 200px;
   background-color: white;
@@ -193,8 +180,7 @@ i {
   background-repeat: no-repeat;
 }
 
-
-.circle-water{
+.circle-water {
   width: 200px;
   height: 200px;
   background-color: white;

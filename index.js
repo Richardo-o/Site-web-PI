@@ -15,6 +15,8 @@ app.set("view engine", "ejs");
 
 // Servindo arquivos estáticos
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true })); // ← necessário para POST de formulário
+
 
 // Rotas
 app.use("/", HortalicasController);
@@ -41,17 +43,29 @@ import connection from "./config/sequelize-config.js";
 //Realizando a conexão com o banco de dados
 //Then() -> trata o sucesso
 //catch() -> trata a falha
-connection.authenticate().then(() => {
-  console.log("Conexão com o banco realizada com sucesso!");
-}).catch((error) => {
-  console.log(error)//conceito promisse
-});
+
+// Comentando banco de dados para não dar erro!
+
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Conexão com o banco realizada com sucesso!");
+  })
+  .catch((error) => {
+    console.log(error); //conceito promisse
+  });
+  
 
 //Criando o banco de dados do projeto (se ele ainda não existir)
-connection.query(`CREATE DATABASE IF NOT EXISTS greenrise;`).then(() => {
-  console.log("O banco de dados está criado!");
-}).catch((error) => {
-  console.log(error);
-});//abrir o Xampp e iniciar o servidor
+// Comentando banco de dados para não dar erro!
 
-import './models/hortalicas.js'
+connection
+  .query(`CREATE DATABASE IF NOT EXISTS greenrise;`)
+  .then(() => {
+    console.log("O banco de dados está criado!");
+  })
+  .catch((error) => {
+    console.log(error);
+  }); //abrir o Xampp e iniciar o servidor
+
+import "./models/hortalicas.js";

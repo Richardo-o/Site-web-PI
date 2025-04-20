@@ -5,24 +5,25 @@
 <div class="container2">
     <div class="circle-hort"></div>
     <h1>Hortaliça</h1>
-    <div class="formHortalicas">
     
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Selecione</option>
-        <option value="1">Alface</option>
-        <option value="2">Batata</option>
-        <option value="3">Tomate</option>
-        <option value="4">Cebola</option>
-        <option value="5">Cenoura</option>
-        <option value="6">Abobora</option>
-        <option value="7">Repolho</option>
-        <option value="8">Chuchu</option>
-        <option value="9">Batata-doce</option>
-    
+    <form action="/hortalicas" method="POST" class="formHortalicas">
+      <select class="form-select" name="tipo_hortalica" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="Alface">Alface</option>
+        <option value="Batata">Batata</option>
+        <option value="Tomate">Tomate</option>
+        <option value="Cebola">Cebola</option>
+        <option value="Cenoura">Cenoura</option>
+        <option value="Abobora">Abóbora</option>
+        <option value="Repolho">Repolho</option>
+        <option value="Chuchu">Chuchu</option>
+        <option value="Batata-doce">Batata-doce</option>
       </select>
     
       <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
-    </div>
+    </form>
+    
+    
 </div>
 
 <%- include ('partials/footer.ejs') %>
