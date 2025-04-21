@@ -10,18 +10,48 @@ body {
 
 #nav-bar {
   z-index: 1000;
+  background-color: #056B49 !important;
+  border-bottom: 4px solid #003b2b;
 }
+a{
+  color: white !important;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+a:hover{
+  background-color: #003b2b;
+  border-radius: 10px;
+  transition: 40ms;
+}
+
+.img-nav{
+  margin-right: 20px;
+}
+
+#nav-bar-index{
+  z-index: 1000;
+  background-color: #056B49 !important;
+  border-bottom: 4px solid #003b2b;
+  margin-left: 300px;
+}
+
 
 .menu {
   display: block;
-  margin-top: 50px;
   width: 300px;
   height: 100vh;
-  background-color: #003b2b;
+  background-color: #065B43;
+  border-right: 4px solid #003b2b ;
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 20px;
+  z-index: 1001;
+}
+
+.menu-top{
+  border-bottom: 4px solid #003b2b;
+  padding-left: 10px;
 }
 
 .imagem {
@@ -79,6 +109,7 @@ i {
   width: calc(100% - 450px);
   box-sizing: border-box;
   align-items: start;
+ 
   
 }
 
@@ -90,13 +121,15 @@ i {
   }
 
   .card {
+ 
     border: none;
     width: 100%;
     margin-right: 0;
     width: 18rem;
     margin: 0;
+    
   }
-
+  
   .text {
     font-size: 1.5rem;
   }
@@ -118,7 +151,7 @@ i {
 }
 
 .card-img-top {
-  height: 200px;
+  height: 230px;
 }
 
 
