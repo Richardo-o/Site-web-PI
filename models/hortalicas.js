@@ -10,7 +10,7 @@ const Hortalicas = connection.define('hortalicas', {
     },
     nome_hortalica: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true // pode ser nulo
     },
     tempo_estimado: {
         type: Sequelize.TIME,
@@ -24,6 +24,6 @@ const Hortalicas = connection.define('hortalicas', {
     },
 });
 
-Hortalicas.sync({ force: false }); // cria a tabela se não existir
+Hortalicas.sync({ alter: true }); // cria a tabela se não existir
 
 export default Hortalicas;

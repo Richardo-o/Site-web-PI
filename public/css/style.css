@@ -189,3 +189,13 @@ i {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.circle-ai{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 100%;
+  background-image: url(/images/ailogo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}

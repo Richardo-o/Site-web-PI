@@ -11,10 +11,10 @@ router.post("/hortalicas", async (req, res) => {
   console.log("DADOS RECEBIDOS:", req.body); // debug no terminal
 
   const {
-    nome_hortalica,
+    nome_hortalica = null,
     tempo_estimado = null, // valor padrão se não vier
     tempo_real = null,
-    tipo_hortalica = "Não informado"
+    tipo_hortalica,
   } = req.body;
 
   try {

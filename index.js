@@ -6,6 +6,7 @@ import express from "express";
 import HortalicasController from "./controllers/HortalicasController.js";
 import FertilizerController from "./controllers/FertilizerController.js";
 import WaterLevelController from "./controllers/WaterLevelController.js";
+import AiAutomationController from "./controllers/AiAutomationController.js";
 // Iniciando express na variável app
 
 const app = express();
@@ -17,16 +18,17 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true })); // ← necessário para POST de formulário
 
+// Rota principal
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
 
 // Rotas
 app.use("/", HortalicasController);
 app.use("/", FertilizerController);
 app.use("/", WaterLevelController);
-
-// Rota principal
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.use("/", AiAutomationController);
 
 // Inicialização do servidor
 app.listen(8080, (error) => {
