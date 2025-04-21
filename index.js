@@ -7,6 +7,8 @@ import HortalicasController from "./controllers/HortalicasController.js";
 import FertilizerController from "./controllers/FertilizerController.js";
 import WaterLevelController from "./controllers/WaterLevelController.js";
 import AiAutomationController from "./controllers/AiAutomationController.js";
+import DashboardController from "./controllers/DashboardController.js";
+import GestaoHortalicasControlleer from "./controllers/GestaoHortalicasController.js"
 // Iniciando express na variável app
 
 const app = express();
@@ -29,6 +31,9 @@ app.use("/", HortalicasController);
 app.use("/", FertilizerController);
 app.use("/", WaterLevelController);
 app.use("/", AiAutomationController);
+app.use("/", DashboardController);
+app.use("/", GestaoHortalicasControlleer);
+
 
 // Inicialização do servidor
 app.listen(8080, (error) => {
