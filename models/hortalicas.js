@@ -26,4 +26,6 @@ const Hortalicas = connection.define('hortalicas', {
 
 Hortalicas.sync({ alter: true }); // cria a tabela se não existir
 
+
+
 export default Hortalicas;

@@ -101,11 +101,11 @@ i {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 10px;
-  margin-top: 20px;
-  margin-left: 450px;
+  margin-top: 20vh;
+  margin-left: 400px;
   width: calc(100% - 450px);
   box-sizing: border-box;
   align-items: start;
@@ -156,8 +156,10 @@ i {
 
 
 .card:hover {
+  /*
   transform: translate(0px, -20px);
   transition: 1s;
+  */
 }
 
 #btn-secundary {
@@ -166,19 +168,33 @@ i {
   background-color: #003b2b;
   font-weight: bold;
   border: none;
+  margin-top: 10px;
 }
 
 #btn-secundary:hover {
   background-color: #08916a;
 }
 
+.wrapper-containers {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap; 
+  /* margin-left: 300px;  Se quiser manter afastado do menu lateral */
+  padding: 20px;
+  margin-top: 20vh;
+}
+
 .container2 {
-  height: 92vh;
+  width: 350px; /* Tamanho fixo para os cards lado a lado */
+  height: auto; /* Altura automática */
+  background-color: transparent;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   color: white;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
+  
 }
 
 .circle-hort {
@@ -192,7 +208,7 @@ i {
 
 .formHortalicas {
   display: flex;
-  flex-direction: row; /* Campos um abaixo do outro */
+  flex-direction: column; /* Campos um abaixo do outro */
   width: 400px;
   padding: 30px;
   background-color: #fff;
@@ -231,4 +247,8 @@ i {
   background-image: url(/images/ailogo.png);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+th, td {
+  padding: 10px;
 }
