@@ -14,14 +14,8 @@ const Fertilizantes = connection.define('fertilizantes', {
   },
   id_hortalica: {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'hortalicas',
-      key: 'id_hortalica'
-    }
+    allowNull: false
   }
 });
-
-Fertilizantes.sync({ force: false });
 
 export default Fertilizantes;

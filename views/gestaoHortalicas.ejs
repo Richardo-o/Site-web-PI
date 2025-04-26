@@ -1,42 +1,48 @@
-<%- include ('partials/navbar.ejs') %>
-<%- include ('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %>
 
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h1>Gestão Hortaliças</h1>
-        </div>
-        <div class="card-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Tipo</th>
-                  <th>Fertilizante g/L</th>
-                  <th>Editar</th>
-                  <th>Excluir</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% gestaoHortalicas.forEach(hortalica => { %>
-                  <tr>
-                    <td><%= hortalica.nome_hortalica %></td>
-                    <td><%= hortalica.tipo_hortalica %></td>
-                    <td><%= hortalica.fertilizante %></td>
-                    <td><button class="btn btn-warning">Editar</button></td>
-                    <td>
-                      <a onclick="return confirm('Deseja mesmo excluir a Hortaliça?')" href="#">
-                        <button class="btn btn-danger">Excluir</button>
-                      </a>
-                    </td>
-                  </tr>
-                <% }) %>
-              </tbody>
-            </table>
-        </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Gestão de Hortaliças</h1>
     </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Fertilizante (g/L)</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% gestaoHortalicas.forEach(hortalica => { %>
+            <tr>
+              <td><%= hortalica.nome_hortalica %></td>
+              <td><%= hortalica.tipo_hortalica %></td>
+              <td>
+                <% if (hortalica.fertilizantes && hortalica.fertilizantes.length > 0) { %>
+                  <%= hortalica.fertilizantes[0].fertilizante %> g/L
+                <% } else { %>
+                  Sem fertilizante
+                <% } %>
+              </td>
+              <td>
+                <button class="btn btn-warning">Editar</button>
+              </td>
+              <td>
+                <a onclick="return confirm('Deseja mesmo excluir a Hortaliça?')" href="#">
+                  <button class="btn btn-danger">Excluir</button>
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
-
-
-<%- include ('partials/footer.ejs') %>
+<%- include('partials/footer.ejs') %>

@@ -9,6 +9,8 @@ import WaterLevelController from "./controllers/WaterLevelController.js";
 import AiAutomationController from "./controllers/AiAutomationController.js";
 import DashboardController from "./controllers/DashboardController.js";
 import GestaoHortalicasControlleer from "./controllers/GestaoHortalicasController.js"
+import "./models/associations.js";
+
 // Iniciando express na variável app
 
 const app = express();
