@@ -50,10 +50,17 @@
   <div class="container2">
     <div class="circle-water"></div>
     <h1>Nível da Água</h1>
-    <div class="formHortalicas">
-      <input class="form-control" type="number" placeholder="Digite o nível em L/h">
-      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
-    </div>
+   
+      <form action="/nivel" method="POST" class="formHortalicas">
+        <input class="form-control" name="nivel_agua" type="number" placeholder="Digite o nível em L/h">
+        <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
+          <option value="" disabled selected>Selecione a hortaliça</option>
+          <% gestaoHortalicas.forEach(h => { %>
+            <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+          <% }) %>
+        </select>
+        <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
+      </form>
   </div>
 </div>
 

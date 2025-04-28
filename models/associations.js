@@ -1,5 +1,6 @@
 import Fertilizantes from "./fertilizante.js";
 import Hortalicas from "./hortalicas.js";
+import Nivel from "./nivel.js";
 
 // Hortalica tem muitos fertilizantes
 Hortalicas.hasMany(Fertilizantes, {
@@ -13,4 +14,20 @@ Fertilizantes.belongsTo(Hortalicas, {
   as: 'hortalica'
 });
 
-export { Fertilizantes, Hortalicas };
+// Nivel pertence a uma hortalica
+// Hortalica tem muitos níveis
+Hortalicas.hasMany(Nivel, {
+  foreignKey: 'id_hortalica',
+  as: 'niveis'
+});
+
+// Nível pertence a uma hortalica
+Nivel.belongsTo(Hortalicas, {
+  foreignKey: 'id_hortalica',
+  as: 'hortalica'
+});
+
+
+
+
+export { Fertilizantes, Hortalicas, Nivel };
