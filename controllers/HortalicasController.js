@@ -1,23 +1,24 @@
 import express from "express";
 import Hortalicas from "../models/hortalicas.js";
-import Fertilizantes from "../models/fertilizante.js"; // importe aqui
+import Fertilizantes from "../models/fertilizante.js";
+import Nivel from "../models/nivel.js"; // Importa diretamente o arquivo
 
 const router = express.Router();
 
-router.get("/gestaoHortalicas", async (req, res) => {
+// Mostrar o formulário de cadastro de hortalica
+router.get("/registerHortalica", async (req, res) => {
   try {
     const gestaoHortalicas = await Hortalicas.findAll({
-      include: [{
-        model: Fertilizantes,
-        as: 'fertilizantes', // aqui nomeamos
-        required: false
-      }]
+      include: [
+        { model: Fertilizantes, as: "fertilizantes" },
+        { model: Nivel, as: "niveis" }
+      ]
     });
-
-    res.render("gestaoHortalicas", { gestaoHortalicas });
+    res.render("registerHortalica", { gestaoHortalicas });
   } catch (err) {
-    console.error("Erro ao carregar gestão:", err);
-    res.status(500).send("Erro ao carregar gestão.");
+    console.error("Erro ao carregar hortaliças:", err);
+    res.status(500).send("Erro ao carregar hortaliças.");
   }
 });
+
 export default router;

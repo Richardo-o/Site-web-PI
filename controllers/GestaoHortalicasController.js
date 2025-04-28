@@ -6,20 +6,21 @@ import Nivel from "../models/nivel.js"; // Importar o modelo de níveis
 const router = express.Router();
 
 // Mostrar o formulário de cadastro de hortalica
-router.get("/registerHortalica", async (req, res) => {
+router.get("/gestaoHortalicas", async (req, res) => {
   try {
     const gestaoHortalicas = await Hortalicas.findAll({
       include: [
         { model: Fertilizantes, as: "fertilizantes" },
-        { model: Nivel, as: "niveis" } // ✅ buscar níveis também
+        { model: Nivel, as: "niveis" }  // Certifique-se de que "niveis" está correto
       ]
     });
-    res.render("registerHortalica", { gestaoHortalicas });
+    res.render("gestaoHortalicas", { gestaoHortalicas });
   } catch (err) {
-    console.error("Erro ao carregar hortaliças:", err);
-    res.status(500).send("Erro ao carregar hortaliças.");
+    console.error("Erro ao carregar gestão de hortaliças:", err);
+    res.status(500).send("Erro ao carregar gestão de hortaliças.");
   }
 });
+
 
 // ✅ Rota de gestão de hortaliças (para mostrar a tabela)
 router.get("/gestaoHortalicas", async (req, res) => {
