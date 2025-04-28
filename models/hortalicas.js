@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
-// Definição do modelo Hortalicas
+
 const Hortalicas = connection.define('hortalicas', {
   id_hortalica: {
     type: Sequelize.INTEGER,

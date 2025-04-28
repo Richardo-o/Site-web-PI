@@ -15,7 +15,7 @@ router.post("/fertilizante", async (req, res) => {
 
     console.log("Fertilizante salvo com sucesso!");
 
-    // Após salvar, voltar para o formulário de hortalicas
+    
     res.redirect("/registerHortalica");
   } catch (err) {
     console.error("Erro ao salvar fertilizante:", err);

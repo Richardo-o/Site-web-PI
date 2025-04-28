@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
-// Definição do modelo Nivel
+
 const Nivel = connection.define('nivel', {
   id_nivel: {
     type: Sequelize.INTEGER,
@@ -21,7 +21,7 @@ const Nivel = connection.define('nivel', {
   freezeTableName: true
 });
 
-// Definir a associação após a definição do modelo Hortalicas
+
 Nivel.associate = (models) => {
   Nivel.belongsTo(models.Hortalicas, { foreignKey: 'id_hortalica', as: 'hortalica' });
 };

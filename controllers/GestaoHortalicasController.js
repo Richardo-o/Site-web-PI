@@ -1,11 +1,11 @@
 import express from "express";
 import Hortalicas from "../models/hortalicas.js";
 import Fertilizantes from "../models/fertilizante.js";
-import Nivel from "../models/nivel.js"; // Importar o modelo de níveis
+import Nivel from "../models/nivel.js"; 
 
 const router = express.Router();
 
-// Mostrar o formulário de cadastro de hortalica
+// formulario de cadastro
 router.get("/gestaoHortalicas", async (req, res) => {
   try {
     const gestaoHortalicas = await Hortalicas.findAll({
@@ -22,7 +22,7 @@ router.get("/gestaoHortalicas", async (req, res) => {
 });
 
 
-// ✅ Rota de gestão de hortaliças (para mostrar a tabela)
+// Rota tabela
 router.get("/gestaoHortalicas", async (req, res) => {
   try {
     const gestaoHortalicas = await Hortalicas.findAll({
@@ -38,7 +38,7 @@ router.get("/gestaoHortalicas", async (req, res) => {
   }
 });
 
-// ✅ Rota POST para salvar uma hortalica
+// Salvar hortaliça
 router.post("/hortalicas", async (req, res) => {
   console.log("DADOS RECEBIDOS:", req.body);
 
@@ -65,17 +65,17 @@ router.post("/hortalicas", async (req, res) => {
   }
 });
 
-// ✅ ROTA DE EXCLUSÃO
+// Rota de Exclusão
 router.get("/gestaoHortalicas/delete/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    // Primeiro excluir fertilizantes associados
+    
     await Fertilizantes.destroy({
       where: { id_hortalica: id }
     });
 
-    // Depois excluir a hortaliça
+  
     await Hortalicas.destroy({
       where: { id_hortalica: id }
     });
