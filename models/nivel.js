@@ -26,4 +26,6 @@ Nivel.associate = (models) => {
   Nivel.belongsTo(models.Hortalicas, { foreignKey: 'id_hortalica', as: 'hortalica' });
 };
 
+// Criando a tabela somente se ainda não existir
+Nivel.sync({force: false})
 export default Nivel;

@@ -27,6 +27,9 @@ const Hortalicas = connection.define('hortalicas', {
   freezeTableName: true
 });
 
+// Criando a tabela somente se ainda não existir
+Hortalicas.sync({force: false})
+
 // Definindo a associação após a definição de outros modelos
 Hortalicas.associate = (models) => {
   Hortalicas.hasMany(models.Fertilizantes, { foreignKey: 'id_hortalica', as: 'fertilizantes' });

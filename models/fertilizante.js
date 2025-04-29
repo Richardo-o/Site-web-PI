@@ -17,5 +17,6 @@ const Fertilizantes = connection.define('fertilizantes', {
     allowNull: false
   }
 });
-
+// Criando a tabela somente se ainda não existir
+Fertilizantes.sync({force: false})
 export default Fertilizantes;
