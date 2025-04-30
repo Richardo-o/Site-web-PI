@@ -1,0 +1,55 @@
+<%- include ('partials/navbar.ejs') %> 
+<%- include ('partials/header.ejs') %>
+
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Alterar Dados</h1>
+            <hr>
+            <form method="POST" action="" >
+                <label>Nome Hortaliça</label>
+                <input type="text" name="nome_hortalica" id="hortalica"  class="form-control" required>
+
+                <label>Tipo Hortaliça</label>
+                <select class="form-select" name="tipo_hortalica" style="margin-top: 15px;" required>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="Alface">Alface</option>
+                    <option value="Batata">Batata</option>
+                    <option value="Tomate">Tomate</option>
+                    <option value="Cebola">Cebola</option>
+                    <option value="Cenoura">Cenoura</option>
+                    <option value="Abobora">Abóbora</option>
+                    <option value="Repolho">Repolho</option>
+                    <option value="Chuchu">Chuchu</option>
+                    <option value="Batata-doce">Batata-doce</option>
+                  </select>
+
+                  <input class="form-control" type="text" name="fertilizante" placeholder="Digite a concentração em g/L" required>
+    
+                  <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
+                    <option value="" disabled selected>Selecione a hortaliça</option>
+                    <% gestaoHortalicas.forEach(h => { %>
+                      <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+                    <% }) %>
+                  </select>
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer.ejs') %>

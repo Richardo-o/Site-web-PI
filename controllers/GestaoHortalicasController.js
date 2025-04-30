@@ -1,7 +1,7 @@
 import express from "express";
 import Hortalicas from "../models/hortalicas.js";
 import Fertilizantes from "../models/fertilizante.js";
-import Nivel from "../models/nivel.js"; 
+import Nivel from "../models/nivel.js";
 
 const router = express.Router();
 
@@ -11,8 +11,8 @@ router.get("/gestaoHortalicas", async (req, res) => {
     const gestaoHortalicas = await Hortalicas.findAll({
       include: [
         { model: Fertilizantes, as: "fertilizantes" },
-        { model: Nivel, as: "niveis" }  // Certifique-se de que "niveis" está correto
-      ]
+        { model: Nivel, as: "niveis" }, // Certifique-se de que "niveis" está correto
+      ],
     });
     res.render("gestaoHortalicas", { gestaoHortalicas });
   } catch (err) {
@@ -21,15 +21,14 @@ router.get("/gestaoHortalicas", async (req, res) => {
   }
 });
 
-
 // Rota tabela
 router.get("/gestaoHortalicas", async (req, res) => {
   try {
     const gestaoHortalicas = await Hortalicas.findAll({
       include: [
         { model: Fertilizantes, as: "fertilizantes" },
-        { model: Nivel, as: "niveis" }
-      ]
+        { model: Nivel, as: "niveis" },
+      ],
     });
     res.render("gestaoHortalicas", { gestaoHortalicas });
   } catch (err) {
@@ -70,21 +69,55 @@ router.get("/gestaoHortalicas/delete/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    
     await Fertilizantes.destroy({
-      where: { id_hortalica: id }
+      where: { id_hortalica: id },
     });
 
-  
     await Hortalicas.destroy({
-      where: { id_hortalica: id }
+      where: { id_hortalica: id },
     });
 
-    console.log(`Hortaliça e fertilizantes com ID ${id} excluídos com sucesso!`);
+    await Nivel.destroy({
+      where: { id_hortalica: id },
+    });
+
+    console.log(
+      `Hortaliça e fertilizantes com ID ${id} excluídos com sucesso!`
+    );
     res.redirect("/gestaoHortalicas");
   } catch (error) {
     console.error("Erro ao excluir:", error);
     res.status(500).send("Erro ao excluir a hortaliça.");
+  }
+});
+
+// ROTA DE EDIÇÃO DE HORTALIÇAS
+
+router.get("/gestaoHortalicas/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Fertilizantes.findByPk(id).then(function (fertilizante) {
+      res.render("fertilizanteEdit", {
+        fertilizante: fertilizante,
+      });
+    });
+
+    await Hortalicas.findByPK(id).then(function (hortalica) {
+      res.render("hortalicasEdit", {
+        hortalica: hortalica,
+      });
+    });
+
+    await Nivel.findByPK(id).then(function (gestaoHortalicas) {
+      Nivel.findByPk(id).then(function (nivel) {
+        res.render("nivelEdit", {
+          nivel: nivel,
+        });
+      });
+    });
+  } catch (error) {
+    console.error("Erro ao editar:", error);
+    res.status(500).send("Erro ao editar a hortaliça.");
   }
 });
 

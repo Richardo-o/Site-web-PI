@@ -8,8 +8,9 @@ import FertilizerController from "./controllers/FertilizerController.js";
 import WaterLevelController from "./controllers/WaterLevelController.js";
 import AiAutomationController from "./controllers/AiAutomationController.js";
 import DashboardController from "./controllers/DashboardController.js";
-import GestaoHortalicasControlleer from "./controllers/GestaoHortalicasController.js"
+import GestaoHortalicasController from "./controllers/GestaoHortalicasController.js";
 import "./models/associations.js";
+import GestaoEditController from "./controllers/GestaoEditController.js";
 
 // Iniciando express na variável app
 
@@ -34,7 +35,8 @@ app.use("/", FertilizerController);
 app.use("/", WaterLevelController);
 app.use("/", AiAutomationController);
 app.use("/", DashboardController);
-app.use("/", GestaoHortalicasControlleer);
+app.use("/", GestaoHortalicasController);
+app.use("/", GestaoEditController);
 
 
 // Inicialização do servidor
