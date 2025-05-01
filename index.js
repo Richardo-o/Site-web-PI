@@ -3,6 +3,7 @@
 import express from "express";
 
 //Importando Rotas
+
 import HortalicasController from "./controllers/HortalicasController.js";
 import FertilizerController from "./controllers/FertilizerController.js";
 import WaterLevelController from "./controllers/WaterLevelController.js";
@@ -11,6 +12,8 @@ import DashboardController from "./controllers/DashboardController.js";
 import GestaoHortalicasController from "./controllers/GestaoHortalicasController.js";
 import "./models/associations.js";
 import GestaoEditController from "./controllers/GestaoEditController.js";
+import RegisterController from "./controllers/RegisterController.js";
+import LoginController from "./controllers/LoginController.js";
 
 // Iniciando express na variável app
 
@@ -37,6 +40,8 @@ app.use("/", AiAutomationController);
 app.use("/", DashboardController);
 app.use("/", GestaoHortalicasController);
 app.use("/", GestaoEditController);
+app.use("/", RegisterController);
+app.use("/", LoginController);
 
 
 // Inicialização do servidor
