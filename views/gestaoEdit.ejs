@@ -3,61 +3,45 @@
 
 
 
-
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h1>Alterar Dados</h1>
-            <hr>
-            <form method="POST" action="" >
-                <label>Tipo Hortaliça</label>
-                <hr>
-                <label>Nome Hortaliça</label>
-                <input type="text" name="nome_hortalica" id="hortalica"  class="form-control" required>
+  <div class="card">
+  <div class="card-header">
+   <h1>Alterar Dados</h1>
+  
+  <hr>
 
-                
-                <select class="form-select" name="tipo_hortalica" style="margin-top: 15px; margin-bottom: 15px;" required>
-                    <option value="" disabled selected>Selecione</option>
-                    <option value="Alface">Alface</option>
-                    <option value="Batata">Batata</option>
-                    <option value="Tomate">Tomate</option>
-                    <option value="Cebola">Cebola</option>
-                    <option value="Cenoura">Cenoura</option>
-                    <option value="Abobora">Abóbora</option>
-                    <option value="Repolho">Repolho</option>
-                    <option value="Chuchu">Chuchu</option>
-                    <option value="Batata-doce">Batata-doce</option>
-                  </select>
+<form method="POST" action="/gestaoHortalicas/edit/<%= hortalica.id_hortalica %>">
 
-                  <label>Fertilizante</label>
-                  <hr>
+  <label>Nome Hortaliça</label>
+  <input type="text" name="nome_hortalica" id="hortalica" value="<%= hortalica.nome_hortalica %>" class="form-control" required>
 
-                  <input class="form-control" type="text" name="fertilizante" placeholder="Digite a concentração em g/L" required>
-    
-                  <select class="form-select" name="id_hortalica" required style="margin-top: 15px">
-                    <option value="" disabled selected>Selecione a hortaliça</option>
-                    <% gestaoHortalicas.forEach(h => { %>
-                      <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
-                    <% }) %>
-                  </select>
+  <label>Tipo Hortaliça</label>
+  <select class="form-select" name="tipo_hortalica" required>
+    <option value="<%= hortalica.tipo_hortalica %>" selected><%= hortalica.tipo_hortalica %></option>
+    <option value="Alface">Alface</option>
+    <option value="Batata">Batata</option>
+    <option value="Tomate">Tomate</option>
+    <option value="Cebola">Cebola</option>
+    <option value="Cenoura">Cenoura</option>
+    <option value="Abobora">Abóbora</option>
+    <option value="Repolho">Repolho</option>
+    <option value="Chuchu">Chuchu</option>
+    <option value="Batata-doce">Batata-doce</option>
+  </select>
 
-                  <label>Nivel da Agua</label>
-                  <hr>
+  <label>Fertilizante</label>
+  <input class="form-control" type="text" name="fertilizante" value="<%= fertilizante ? fertilizante.fertilizante : '' %>" placeholder="Digite a concentração em g/L" required>
 
-                  <input class="form-control" name="nivel_agua" type="number" placeholder="Digite o nível em L/h">
-                  <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
-                    <option value="" disabled selected>Selecione a hortaliça</option>
-                    <% gestaoHortalicas.forEach(h => { %>
-                      <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
-                    <% }) %>
-                  </select>
-                  <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px; margin-top: 10px;">Salvar</button>
-                
-            </form>
+  <label>Nível da Água</label>
+  <input class="form-control" name="nivel_agua" type="number" value="<%= nivel ? nivel.nivel_agua : '' %>" placeholder="Digite o nível em L/h">
 
-        </div>
-    </div>
+  <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 10px;">Salvar</button>
+</form>
+
 </div>
+</div>
+</div>
+
 
 
 

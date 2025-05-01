@@ -7,9 +7,9 @@ const connection = new Sequelize({ //instância da classe de Sequelize
     host: 'localhost',
     port: '3306',
     username:'root',
-    password: '', //sem senha
+    password: 'root', //sem senha
     //Comente a linha abaixo na primeira execução do projeto
-    database:'teste1', //nome do banco (primeiro precisa criar o banco)
+     database:'greenrise', //nome do banco (primeiro precisa criar o banco)
     timezone: "-03:00",
 }) 
 export default connection; //exportando o módulo
