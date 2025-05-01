@@ -10,11 +10,13 @@
             <h1>Alterar Dados</h1>
             <hr>
             <form method="POST" action="" >
+                <label>Tipo Hortaliça</label>
+                <hr>
                 <label>Nome Hortaliça</label>
                 <input type="text" name="nome_hortalica" id="hortalica"  class="form-control" required>
 
-                <label>Tipo Hortaliça</label>
-                <select class="form-select" name="tipo_hortalica" style="margin-top: 15px;" required>
+                
+                <select class="form-select" name="tipo_hortalica" style="margin-top: 15px; margin-bottom: 15px;" required>
                     <option value="" disabled selected>Selecione</option>
                     <option value="Alface">Alface</option>
                     <option value="Batata">Batata</option>
@@ -27,14 +29,29 @@
                     <option value="Batata-doce">Batata-doce</option>
                   </select>
 
+                  <label>Fertilizante</label>
+                  <hr>
+
                   <input class="form-control" type="text" name="fertilizante" placeholder="Digite a concentração em g/L" required>
     
+                  <select class="form-select" name="id_hortalica" required style="margin-top: 15px">
+                    <option value="" disabled selected>Selecione a hortaliça</option>
+                    <% gestaoHortalicas.forEach(h => { %>
+                      <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+                    <% }) %>
+                  </select>
+
+                  <label>Nivel da Agua</label>
+                  <hr>
+
+                  <input class="form-control" name="nivel_agua" type="number" placeholder="Digite o nível em L/h">
                   <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
                     <option value="" disabled selected>Selecione a hortaliça</option>
                     <% gestaoHortalicas.forEach(h => { %>
                       <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
                     <% }) %>
                   </select>
+                  <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px; margin-top: 10px;">Salvar</button>
                 
             </form>
 
