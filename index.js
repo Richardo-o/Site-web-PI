@@ -15,6 +15,16 @@ import GestaoEditController from "./controllers/GestaoEditController.js";
 import RegisterController from "./controllers/RegisterController.js";
 import LoginController from "./controllers/LoginController.js";
 
+
+connection.sync()
+  .then(() => {
+    console.log("Banco de dados sincronizado!");
+  })
+  .catch((error) => {
+    console.log("Erro ao sincronizar o banco de dados:", error);
+  });
+
+
 // Iniciando express na variável app
 
 const app = express();

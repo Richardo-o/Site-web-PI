@@ -6,7 +6,7 @@
         <img src="/images/tela-register.svg" alt="">
     </div>
     <div class="form">
-        <form action="#">
+        <form action="/user" method="POST">
             <div class="form-header">
                 <div class="title">
                     <h1 style="color: black;">Cadastre-se</h1>
@@ -33,7 +33,7 @@
 
                 <div class="input-box">
                     <label for="number">Celular</label>
-                    <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required>
+                    <input id="number" type="tel" name="Phonenumber" placeholder="(xx) xxxx-xxxx" required>
                 </div>
 
                 <div class="input-box">
@@ -78,7 +78,7 @@
             </div>
 
             <div class="continue-button">
-                <button><a href="#">Continuar</a> </button>
+                <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-top: 20px;">Registrar-se</button>
             </div>
         </form>
     </div>
