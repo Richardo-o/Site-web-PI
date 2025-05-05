@@ -11,23 +11,28 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
+  console.log("DADOS RECEBIDOS:", req.body); // ← Isso vai garantir que o e-mail e a senha estão sendo recebidos
+
   try {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
+      console.log(`Usuário não encontrado: ${email}`); // Log para confirmar que não encontramos o usuário
       return res.status(400).json({ error: 'Usuário não encontrado!' });
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
+
+
     if (!isPasswordCorrect) {
       return res.status(400).json({ error: 'Senha incorreta!' });
     }
 
-    // Caso a autenticação seja bem-sucedida
-    res.json({ message: 'Login bem-sucedido!' });
+    res.redirect("/index");
+
   } catch (error) {
-    console.log(error);
+    console.log("Erro no servidor:", error);
     res.status(500).json({ error: 'Erro no servidor!' });
   }
 });

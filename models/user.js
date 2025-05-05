@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import connection from '../config/sequelize-config.js';
 
-const Users = connection.define('user', {
+const User = connection.define('User', {
   firstname: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -27,8 +27,8 @@ const Users = connection.define('user', {
     type: DataTypes.STRING,
     allowNull: true,
   },
+}, {
+  tableName: 'users', // ← isso garante que use a tabela existente
 });
 
-Users.sync({force: false})
-
-export default Users;
+export default User;

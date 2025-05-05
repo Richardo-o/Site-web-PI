@@ -6,26 +6,28 @@
         <img src="/images/login-tela.svg" alt="">
     </div>
     <div class="form">
-        <form action="#">
+        <form id="login-form" action="/login" method="POST">
             <div class="form-header">
-                <div class="title">
-                    <h1 style="color: black;">Login</h1>
-                </div>
+              <div class="title">
+                <h1 style="color: black;">Login</h1>
+              </div>
             </div>
-
-                <div class="input-box">
-                    <label for="email">E-mail</label>
-                    <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
-                </div>
-
-                <div class="input-box">
-                    <label for="password">Senha</label>
-                    <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
-                </div>
-
-                <div class="continue-button">
-                    <button><a href="#">Entrar</a> </button>
-                </div>
+          
+            <div class="input-box">
+              <label for="email">E-mail</label>
+              <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+            </div>
+          
+            <div class="input-box">
+              <label for="password">Senha</label>
+              <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+            </div>
+          
+            <div class="continue-button">
+              <button type="submit">Entrar</button>
+            </div>
+          </form>
+          
 
                 <div class="Opcoes">
                     <p class="parForm">Não possui conta? <a href="/register" class="linkForm">clique aqui</a></p>
