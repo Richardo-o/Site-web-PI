@@ -19,6 +19,7 @@ import LoginController from "./controllers/LoginController.js";
 import "./models/hortalicas.js";
 import IndexController from "./controllers/IndexController.js";
 import AlterarLoginController from "./controllers/AlterarLoginController.js";
+import AlterarDadosController from "./controllers/AlterarDadosContaController.js"
 
 // Iniciando express
 const app = express();
@@ -58,6 +59,7 @@ app.use("/", RegisterController);
 app.use("/", LoginController);
 app.use("/", IndexController);
 app.use("/", AlterarLoginController);
+app.use("/", AlterarDadosController);
 
 
 // Conexão e sincronização com o banco
