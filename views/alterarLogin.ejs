@@ -1,0 +1,34 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+<div class="perfil-container">
+    <h1 class="perfil">Meu perfil</h1>
+  <div class="principal">
+      
+           <div class="containerOpcao">
+               <h2 class="opcaoH">Alterar dados da conta</h2>
+               <p class="opcaoP">Clicando abaixo você ira editar os dados da sua conta atual, não se esqueça que após alterar os dados você terá refazer o seu login novamente com seus novos dados!</p>
+               <button type="submit" class="botOpcao">ALTERAR DADOS</button>
+           </div>
+      
+           <form action="/delete-account" method="POST" class="containerOpcao">
+            <h2 class="opcaoH">Excluir cadastro</h2>
+            <p class="opcaoP">Clicando no botão abaixo, você irá excluir o seu cadastro do Greenrise, juntamente com todos os seus dados e fazendas. Sua assinatura não será cancelada!</p>
+            <input type="hidden" name="userId" value="<%= user.id %>">  
+            <button type="submit" class="botaoExcluir">EXCLUIR CADASTRO</button>
+        </form>
+        
+        
+      
+           <div class="containerOpcao">
+               <h2 class="opcaoH">Exportar dados</h2>
+               <p class="opcaoP">Você pode visualizar ou baixar suas informações a qualquer momento. Clique no botão abaixo para exportar seus dados da fazenda vertical do sistema greenrise!</p>
+               <button type="submit" class="botOpcao">EXPORTAR DADOS</button>
+      
+       </div>
+      </div>
+  </div>
+
+
+
+<%- include ('partials/footer.ejs') %> 

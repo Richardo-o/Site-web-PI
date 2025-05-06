@@ -570,3 +570,94 @@ canvas {
   font-weight: bold;
   margin-right: 20px;
 }
+
+.perfil-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 50px auto;
+  background-color: #028a66;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.perfil {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.principal {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.containerOpcao {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 30%;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerOpcao:hover {
+  transform: translateY(-5px);
+}
+
+.opcaoH {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.opcaoP {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.botOpcao, .botaoExcluir {
+  background-color: #028a66;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.botaoExcluir {
+  background-color: #D32F2F;
+}
+
+.botaoExcluir:hover {
+  background-color: #C62828;
+}
+
+.botOpcao:hover {
+  background-color: #003b2b;
+}
+
+@media (max-width: 768px) {
+  .principal {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .containerOpcao {
+      width: 100%;
+  }
+}

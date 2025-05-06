@@ -1,6 +1,7 @@
 import express from 'express';
 import User from '../models/user.js';
 import bcrypt from 'bcrypt';
+import { isAuthenticated } from './LoginController.js';
 
 const router = express.Router();
 
@@ -60,8 +61,14 @@ router.put("/update-email", async (req, res) => {
   });
   
 
-  router.delete("/delete-account", async (req, res) => {
-    const { userId } = req.body;
+  router.post("/delete-account", isAuthenticated, async (req, res) => {
+
+    console.log("Sessão atual:", req.session);
+    const userId = req.session.userId;
+  
+    if (!userId) {
+      return res.status(401).json({ error: 'Usuário não autenticado!' });
+    }
   
     try {
       const user = await User.findByPk(userId);
@@ -71,12 +78,14 @@ router.put("/update-email", async (req, res) => {
       }
   
       await user.destroy();
+      req.session.destroy(); // <- limpa a sessão
       res.json({ message: 'Conta deletada com sucesso!' });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: 'Erro no servidor!' });
     }
   });
+  
   
   router.post("/user", async (req, res) => {
     const { firstname, lastname, email, password, confirmPassword, phoneNumber, gender } = req.body;
