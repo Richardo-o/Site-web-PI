@@ -661,3 +661,11 @@ canvas {
       width: 100%;
   }
 }
+
+.formulario{
+  width: 500px;
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
+}
