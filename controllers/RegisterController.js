@@ -40,26 +40,44 @@ router.get("/register", (req, res) => {
   res.render("register"); // Certifique-se de ter uma view chamada 'register.ejs'
 });
 
-router.put("/update-email", async (req, res) => {
-    const { userId, newEmail } = req.body;
-  
-    try {
-      const user = await User.findByPk(userId);
-  
-      if (!user) {
-        return res.status(404).json({ error: 'Usuário não encontrado!' });
-      }
-  
-      user.email = newEmail;
-      await user.save();
-  
-      res.json({ message: 'E-mail alterado com sucesso!' });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: 'Erro no servidor!' });
+router.post("/update-email", async (req, res) => {
+  const { currentEmail, currentPassword, newEmail, newPassword } = req.body;
+
+  try {
+    // Encontrar o usuário pelo e-mail atual
+    const user = await User.findOne({ where: { email: currentEmail } });
+
+    if (!user) {
+      return res.status(404).json({ error: 'Usuário não encontrado!' });
     }
-  });
-  
+
+    // Verificar se a senha atual está correta
+    const isPasswordCorrect = await bcrypt.compare(currentPassword, user.password);
+    
+    if (!isPasswordCorrect) {
+      return res.status(401).json({ error: 'Senha atual incorreta!' });
+    }
+
+    // Atualizar e-mail e senha
+    if (newEmail) {
+      user.email = newEmail;
+    }
+
+    if (newPassword) {
+      // Se uma nova senha for fornecida, hash a senha antes de salvar
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      user.password = hashedPassword;
+    }
+
+    // Salvar as alterações no banco de dados
+    await user.save();
+
+    res.json({ message: 'Dados atualizados com sucesso!' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Erro no servidor!' });
+  }
+});
 
   router.post("/delete-account", isAuthenticated, async (req, res) => {
 
@@ -84,7 +102,11 @@ router.put("/update-email", async (req, res) => {
       console.log(error);
       res.status(500).json({ error: 'Erro no servidor!' });
     }
+
+    res.redirect("/login");
   });
+
+
   
   
   router.post("/user", async (req, res) => {
