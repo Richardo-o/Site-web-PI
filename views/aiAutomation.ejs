@@ -2,7 +2,7 @@
 <%- include ('partials/header.ejs') %>
 
 
-<div class="container2">
+<div class="container2" style="margin: auto;">
     <div class="circle-ai"></div>
     <h1>Automatização</h1>
 
@@ -22,6 +22,154 @@
     
     
 </div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+  .dashboard {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    justify-content: space-around;
+    padding: 20px;
+
+  }
+
+  .card3 {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    width: 500px;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .title2{
+    color: black !important;  
+    display: flex;
+    justify-content: right;
+    font-size: 2rem;
+    font-weight: bolder;
+    font-family: "Roboto Flex";
+  }
+
+  .indicator {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .arrow-down {
+    color: orange;
+  }
+
+  .arrow-up {
+    color: yellow;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Project Cost Performance -->
+  <div class="card3">
+    <p class="title2">Aplicação com IA</p>
+    <canvas id="gaugeChart"></canvas>
+    <p style="font-size: 100px; font-weight: bold; transform: translate(130px,-100px);">50%</p>
+  </div>
+
+  <!-- Time Vs Project Phase -->
+  <div class="card3">
+    <p class="title2">Hortaliças</p>
+    <canvas id="barChart"></canvas>
+  </div>
+
+  <!-- Project Phase % Completed -->
+  <div class="card3">
+    <p class="title2">Grafico em tempo real</p>
+    <canvas id="pieChart"></canvas>
+  </div>
+
+</div>
+
+<script>
+  // Gráfico Gauge (simulado com doughnut)
+  new Chart(document.getElementById('gaugeChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Used', 'Remaining'],
+      datasets: [{
+        data: [48048, 93332 - 48048],
+        backgroundColor: ['#00ff99', '#555'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      rotation: -90,
+      circumference: 180,
+      cutout: '70%',
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: false }
+      }
+    }
+  });
+
+  // Gráfico de Barras
+  new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Closure', 'Execution', 'Monitor & Control', 'Initiation', 'Planning'],
+      datasets: [{
+        label: 'Hours',
+        data: [56, 164, 36, 40, 144],
+        backgroundColor: '#8e66ff'
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        x: { beginAtZero: true }
+      }
+    }
+  });
+
+  // Gráfico de Pizza
+  new Chart(document.getElementById('pieChart'), {
+    type: 'pie',
+    data: {
+      labels: ['Planning', 'Initiation', 'Execution', 'Closure', 'Monitor & Control'],
+      datasets: [{
+        data: [60, 13.3, 20, 6.7, 0],
+        backgroundColor: ['#00ccff', '#8e66ff', '#ff6600', '#6600cc', '#00cc99']
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#fff'
+          }
+        }
+      }
+    }
+  });
+</script>
+
+
 
 
 
