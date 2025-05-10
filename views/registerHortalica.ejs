@@ -20,7 +20,7 @@
         <option value="Chuchu">Chuchu</option>
         <option value="Batata-doce">Batata-doce</option>
       </select>
-      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
+      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;"><i class="bi bi-bookmark-fill"></i>Salvar</button>
     </form>
   </div>
 
@@ -36,11 +36,11 @@
       <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
         <option value="" disabled selected>Selecione a hortaliça</option>
         <% gestaoHortalicas.forEach(h => { %>
-          <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+          <option value="<%= h.id_hortalica %>"><%= h.nome_hortalica %></option>
         <% }) %>
       </select>
     
-      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-top: 20px;">Salvar Fertilizante</button>
+      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-top: 20px;"><i class="bi bi-bookmark-fill"></i></i>Salvar</button>
     </form>
   </div>
 
@@ -56,10 +56,10 @@
         <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
           <option value="" disabled selected>Selecione a hortaliça</option>
           <% gestaoHortalicas.forEach(h => { %>
-            <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+            <option value="<%= h.id_hortalica %>"><%= h.nome_hortalica %></option>
           <% }) %>
         </select>
-        <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
+        <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;"><i class="bi bi-bookmark-fill"></i>Salvar</button>
       </form>
   </div>
 </div>

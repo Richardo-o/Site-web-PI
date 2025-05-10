@@ -271,6 +271,7 @@ i {
   font-weight: bold;
   border: none;
   margin-top: 10px;
+  font-size: 15px;
 }
 
 #btn-secundary:hover {
