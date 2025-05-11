@@ -8,7 +8,7 @@ const connection = new Sequelize("greenrise", "root", "", {
     host: 'localhost',
     port: '3306',
     username:'root',
-    password: 'root', //sem senha
+    password: '', //sem senha
     //Comente a linha abaixo na primeira execução do projeto
     database:'greenrise', //nome do banco (primeiro precisa criar o banco)
     timezone: "-03:00",
