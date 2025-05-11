@@ -1,5 +1,5 @@
 ScrollReveal().reveal('.card', {
-    interval: 350, 
+    interval: 200, 
     distance: '50px',
     origin: 'bottom',
     duration: 800,
