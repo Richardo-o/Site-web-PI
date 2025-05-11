@@ -2,26 +2,22 @@
 <%- include ('partials/header.ejs') %>
 
 
-<div class="container2" style="margin: auto;">
+<div class="container2" style="margin: auto; margin-top: 20px;">
     <div class="circle-ai"></div>
     <h1>Automatização</h1>
 
     <!--Obs trocar hortalisas pelas informações do banco de dados-->
     
-    <form action="/hortalicas" method="POST" class="formHortalicas">
-      <select class="form-select" name="tipo_hortalica" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Alface">Manual</option>
-        <option value="Batata">Nível de água + Fertilização</option>
-        <option value="Tomate">Nível de água</option>
-        <option value="Cebola">Fertilizante</option>
-      </select>
-    
-      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
-    </form>
-    
-    
+    <form action="/hortalicas" method="POST">
 </div>
+  <div class="options">
+    <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;"><i class="bi bi-arrow-up-left-circle"></i>Manual</button>
+    <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;"><i class="bi bi-droplet-fill"></i>+ <i class="bi bi-tree-fill"></i>Nível de água + Fertilização</button>
+    <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;"><i class="bi bi-droplet-fill"></i>Nível de água</button>
+    <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;"><i class="bi bi-tree-fill"></i>Fertilizante</button>
+
+  </div>
+</form>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
@@ -80,36 +76,64 @@
 
 <div class="dashboard">
 
-  <!-- Project Cost Performance -->
+  
   <div class="card3">
     <p class="title2">Aplicação com IA</p>
     <canvas id="gaugeChart"></canvas>
     <p style="font-size: 100px; font-weight: bold; transform: translate(130px,-100px);">50%</p>
+    <div class="informacoes">
+      <div class="legenda">
+        <div class="informacao1"></div><span>Aplicação 100%</span>
+      </div>
+      <div class="legenda">
+        <div class="informacao2"></div><span>Aplicação 50%</span>
+      </div>
+      <div class="legenda">
+        <div class="informacao3"></div><span>Aplicação 0%</span>
+      </div>
+    </div>
+    
+    
   </div>
 
-  <!-- Time Vs Project Phase -->
+
   <div class="card3">
     <p class="title2">Hortaliças</p>
     <canvas id="barChart"></canvas>
   </div>
 
-  <!-- Project Phase % Completed -->
+  
   <div class="card3">
     <p class="title2">Grafico em tempo real</p>
     <canvas id="pieChart"></canvas>
+    <div class="informacoes">
+      <div class="legenda">
+        <div class="informacao4"></div><span>Sensor Ativo (100%)</span>
+      </div>
+      <div class="legenda">
+        <div class="informacao5"></div><span>Irrigação Moderada (50%)</span>
+      </div>
+      <div class="legenda">
+        <div class="informacao6"></div><span>Sem Irrigação (0%)</span>
+      </div>
+      <div class="legenda">
+        <div class="informacao7"></div><span>Erro de Comunicação</span>
+      </div>
+    </div>
+    
   </div>
 
 </div>
 
 <script>
-  // Gráfico Gauge (simulado com doughnut)
+  
   new Chart(document.getElementById('gaugeChart'), {
     type: 'doughnut',
     data: {
       labels: ['Used', 'Remaining'],
       datasets: [{
         data: [48048, 93332 - 48048],
-        backgroundColor: ['#00ff99', '#555'],
+        backgroundColor: ['#C59201', '#555'],
         borderWidth: 0
       }]
     },
@@ -124,15 +148,15 @@
     }
   });
 
-  // Gráfico de Barras
+
   new Chart(document.getElementById('barChart'), {
     type: 'bar',
     data: {
-      labels: ['Closure', 'Execution', 'Monitor & Control', 'Initiation', 'Planning'],
+      labels: ['Hortaliças', 'Execuções', 'Desempenho', 'Inicialização'],
       datasets: [{
         label: 'Hours',
         data: [56, 164, 36, 40, 144],
-        backgroundColor: '#8e66ff'
+        backgroundColor: ['#028a66', '#03f685', '#64ecc6', '#003b2b']
       }]
     },
     options: {
@@ -146,14 +170,14 @@
     }
   });
 
-  // Gráfico de Pizza
+
   new Chart(document.getElementById('pieChart'), {
     type: 'pie',
     data: {
-      labels: ['Planning', 'Initiation', 'Execution', 'Closure', 'Monitor & Control'],
+      labels: [],
       datasets: [{
         data: [60, 13.3, 20, 6.7, 0],
-        backgroundColor: ['#00ccff', '#8e66ff', '#ff6600', '#6600cc', '#00cc99']
+        backgroundColor: ['#028a66', '#03f685', '#64ecc6', '#003b2b']
       }]
     },
     options: {

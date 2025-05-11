@@ -15,11 +15,8 @@
             <h2 class="opcaoH">Excluir cadastro</h2>
             <p class="opcaoP">Clicando no botão abaixo, você irá excluir o seu cadastro do Greenrise, juntamente com todos os seus dados e fazendas. Sua assinatura não será cancelada!</p>
             <input type="hidden" name="userId" value="<%= user.id %>">  
-            <button type="submit" class="botaoExcluir">EXCLUIR CADASTRO</button>
+            <button type="submit" class="botaoExcluir" onclick="return confirm('Deseja mesmo excluir essa conta?')" >EXCLUIR CADASTRO</button>
         </form>
-        
-        
-      
            <div class="containerOpcao">
                <h2 class="opcaoH">Exportar dados</h2>
                <p class="opcaoP">Você pode visualizar ou baixar suas informações a qualquer momento. Clique no botão abaixo para exportar seus dados da fazenda vertical do sistema greenrise!</p>

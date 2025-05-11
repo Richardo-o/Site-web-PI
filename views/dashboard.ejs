@@ -1,10 +1,9 @@
-<%- include ('partials/navbar.ejs') %> <%- include ('partials/header.ejs') %>
+<%- include ('partials/nav-fixed.ejs') %> <%- include ('partials/header.ejs') %>
 
 
 <div class="containerGest2">
-  <div class="header">
-      <div class="title"></div>
-      <select>
+  <div class="header1">
+      <select class="opcoes">
           <option>Fazenda 1</option>
           <option>Fazenda 2</option>
           <option>Fazenda 3</option>
@@ -149,5 +148,52 @@
       options: barOptions
   });
 </script>
+
+<div class="chart-container1">
+    <div class="chart-title1">Distribuição do consumo</div>
+    <canvas id="consumoChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('consumoChart').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: Array.from({ length: 24 }, (_, i) => i + 'h'),
+        datasets: [{
+          label: 'Óptica da Empresa',
+          backgroundColor: '#2ECC71',
+          data: [5, 1, 0, 0, 0, 0, 2, 5, 8, 12, 9, 15, 16, 17, 17, 17, 17, 18, 30, 22, 24, 20, 16, 6]
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Volume médio (litros)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Hora do dia'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  </script>
+
 
 <%- include ('partials/footer.ejs') %>

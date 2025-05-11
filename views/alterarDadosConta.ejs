@@ -1,32 +1,35 @@
 <%- include ('partials/navbar.ejs') %>
 <%- include ('partials/header.ejs') %>
 
-<div class="formulario">
-    <h1>Alterar Dados</h1>
-    <form class="row g-3" method="POST" action="/update-email">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Novo Email</label>
-          <input type="email" class="form-control" id="inputEmail4" name="newEmail" placeholder="Novo E-mail">
+<div class="containerGest">
+    <div class="card">
+      
+      <div class="card-header">
+        <h1>Alterar Dados</h1>
+        <form class="row g-3" method="POST" action="/update-email">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Novo Email</label>
+              <input type="email" class="form-control" id="inputEmail4" name="newEmail" placeholder="Novo E-mail">
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Nova Senha</label>
+              <input type="password" class="form-control" id="inputPassword4" name="newPassword" placeholder="Nova Senha">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Email Atual</label>
+              <input type="text" class="form-control" id="inputAddress" name="currentEmail" placeholder="Digite o email atual">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">Senha Atual</label>
+              <input type="password" class="form-control" id="inputAddress2" name="currentPassword" placeholder="Digite a senha atual">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 10px;" id="btn-salvar"><i class="bi bi-bookmark"></i>Salvar Dados</button>
+              </div>
+            </div>
+        </form>
         </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Nova Senha</label>
-          <input type="password" class="form-control" id="inputPassword4" name="newPassword" placeholder="Nova Senha">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Email Atual</label>
-          <input type="text" class="form-control" id="inputAddress" name="currentEmail" placeholder="Digite o email atual">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Senha Atual</label>
-          <input type="password" class="form-control" id="inputAddress2" name="currentPassword" placeholder="Digite a senha atual">
-
-        </div>
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Salvar Dados</button>
-          </div>
-        </div>
-
-    </form>
-</div>
+            </div>
+      </div>
 
 <%- include ('partials/footer.ejs') %>
