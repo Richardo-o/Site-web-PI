@@ -37,7 +37,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-  res.render("register"); // Certifique-se de ter uma view chamada 'register.ejs'
+  res.render("register"); 
 });
 
 router.post("/update-email", async (req, res) => {
@@ -64,7 +64,7 @@ router.post("/update-email", async (req, res) => {
     }
 
     if (newPassword) {
-      // Se uma nova senha for fornecida, hash a senha antes de salvar
+    
       const hashedPassword = await bcrypt.hash(newPassword, 10);
       user.password = hashedPassword;
     }
@@ -96,7 +96,7 @@ router.post("/update-email", async (req, res) => {
       }
   
       await user.destroy();
-      req.session.destroy(); // <- limpa a sessão
+      req.session.destroy(); // limpando a sessão
       res.json({ message: 'Conta deletada com sucesso!' });
     } catch (error) {
       console.log(error);

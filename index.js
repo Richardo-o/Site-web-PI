@@ -67,17 +67,17 @@ app.use("/", AlterarDadosController);
 connection
   .authenticate()
   .then(() => {
-    console.log("✅ Conexão com o banco realizada com sucesso!");
+    console.log("Conexão com o banco realizada com sucesso!");
     return connection.sync(); // sincroniza só após conectar
   })
   .then(() => {
-    console.log("✅ Banco de dados sincronizado!");
+    console.log("Banco de dados sincronizado!");
   })
   .catch((error) => {
-    console.error("❌ Erro na conexão ou sincronização do banco:", error);
+    console.error("Erro na conexão ou sincronização do banco:", error);
   });
 
 // Iniciar servidor
 app.listen(8080, () => {
-  console.log("🌱 Servidor iniciado com sucesso na porta 8080!");
+  console.log("Servidor iniciado com sucesso na porta 8080!");
 });

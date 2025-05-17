@@ -1,5 +1,5 @@
 import express from "express";
-import User from '../models/user.js';  // Certifique-se de importar seu modelo de usuário
+import User from '../models/user.js';  
 import passport from 'passport';
 
 const router = express.Router();
@@ -34,7 +34,7 @@ router.post("/delete-account", async (req, res) => {
     res.json({ message: 'Conta excluída com sucesso!' });  // Retorna sucesso
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Erro no servidor!' });  // Se houver erro no servidor
+    res.status(500).json({ error: 'Erro no servidor!' });  
   }
 });
 
