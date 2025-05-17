@@ -72,12 +72,15 @@ router.post("/update-email", async (req, res) => {
     // Salvar as alterações no banco de dados
     await user.save();
 
-    res.json({ message: 'Dados atualizados com sucesso!' });
+    res.redirect('/login')
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Erro no servidor!' });
   }
+
 });
+
+ 
 
   router.post("/delete-account", isAuthenticated, async (req, res) => {
 
@@ -103,7 +106,7 @@ router.post("/update-email", async (req, res) => {
       res.status(500).json({ error: 'Erro no servidor!' });
     }
 
-    res.redirect("/login");
+    
   });
 
 
