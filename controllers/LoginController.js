@@ -2,8 +2,6 @@ import express from 'express';
 import User from '../models/user.js';
 import bcrypt from 'bcrypt';
 
-
-
 const router = express.Router();
 
 // Rota para exibir a página de login
@@ -30,6 +28,7 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.userId = user.id; // Salva ID do usuário na sessão
+    req.session.firstname = user.firstname; // Salva o firstname do usuário na sessão
 
     res.redirect("/index");
   } catch (error) {
@@ -45,5 +44,11 @@ export const isAuthenticated = (req, res, next) => {
   }
   res.status(401).json({ error: 'Usuário não autenticado!' });
 };
+
+// Middleware para carregar o nome do usuário na view
+router.use((req, res, next) => {
+  res.locals.firstname = req.session.firstname || null;
+  next();
+});
 
 export default router;
