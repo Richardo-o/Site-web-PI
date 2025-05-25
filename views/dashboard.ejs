@@ -1,50 +1,80 @@
-<%- include ('partials/nav-fixed.ejs') %> <%- include ('partials/header.ejs') %>
+<%- include ('partials/nav-fixed.ejs') %> 
+<%- include ('partials/header.ejs') %>
 
 
-<div class="containerGest2">
-  <div class="header1">
-      <select class="opcoes">
-          <option>Fazenda 1</option>
-          <option>Fazenda 2</option>
-          <option>Fazenda 3</option>
-          <option>Fazenda 4</option>
-      </select>
+<div class="tudo">
+    <div class="containerGest2">
+      <div class="header1">
+          <select class="opcoes">
+              <option>Fazenda 1</option>
+              <option>Fazenda 2</option>
+              <option>Fazenda 3</option>
+              <option>Fazenda 4</option>
+          </select>
+      </div>
+    
+      <div class="stats">
+          <div class="stat-box">
+              <div class="number" id="users">567kWh</div>
+              <div class="label">Consumo Energia</div>
+              <div class="Imagem1"><img src="/images/kWh.png" alt="" class="img"></div>
+          </div>
+          <div class="stat-box">
+              <div class="number" id="fund">4</div>
+              <div class="label">Plantações</div>
+              <div class="Imagem1"><img src="/images/planta.png" alt="" class="img"></div>
+          </div>
+          <div class="stat-box">
+              <div class="number" id="balance">678</div>
+              <div class="label">Rendimento</div>
+              <div class="Imagem1"><img src="/images/grafico.png" alt="" class="img"></div>
+          </div>
+          <div class="stat-box">
+              <div class="number" id="transfers">50</div>
+              <div class="label">Perdas</div>
+              <div class="Imagem1"><img src="/images/perdas.png" alt="" class="img"></div>
+          </div>
+      </div>
+
+    
+      <div class="charts">
+          <!-- Graph 1: Line Chart -->
+          <div class="chart-container">
+              <canvas id="lineChart"></canvas>
+          </div>
+    
+          <!-- Graph 2: Bar Chart -->
+          <div class="chart-container">
+              <canvas id="barChart"></canvas>
+          </div>
+      </div>
+
+<div class="wrapper-side-by-side">
+  <div class="side-by-side-container">
+    <div class="chart-container1">
+      <div class="chart-title1">Distribuição do consumo</div>
+      <canvas id="consumoChart"></canvas>
+    </div>
   </div>
 
-  <div class="stats">
-      <div class="stat-box">
-          <div class="number" id="users">567kWh</div>
-          <div class="label">Consumo Energia</div>
-          <div class="Imagem1"><img src="/images/kWh.png" alt="" class="img"></div>
-      </div>
-      <div class="stat-box">
-          <div class="number" id="fund">4</div>
-          <div class="label">Plantações</div>
-          <div class="Imagem1"><img src="/images/planta.png" alt="" class="img"></div>
-      </div>
-      <div class="stat-box">
-          <div class="number" id="balance">678</div>
-          <div class="label">Rendimento</div>
-          <div class="Imagem1"><img src="/images/grafico.png" alt="" class="img"></div>
-      </div>
-      <div class="stat-box">
-          <div class="number" id="transfers">50</div>
-          <div class="label">Perdas</div>
-          <div class="Imagem1"><img src="/images/perdas.png" alt="" class="img"></div>
-      </div>
-  </div>
 
-  <div class="charts">
-      <!-- Graph 1: Line Chart -->
-      <div class="chart-container">
-          <canvas id="lineChart"></canvas>
-      </div>
-
-      <!-- Graph 2: Bar Chart -->
-      <div class="chart-container">
-          <canvas id="barChart"></canvas>
-      </div>
+  <div class="container3" style="position: relative;">
+  <div class="video-box">
+    <img src="/images/fazenda3.png" alt="Vídeo 1" />
   </div>
+  <div class="video-box">
+    <img src="/images/fazenda2.png" alt="Vídeo 2" />
+   </div>
+  <div class="video-box">
+    <img src="/images/fazenda2.png" alt="Vídeo 3" />
+  </div>
+  <div class="video-box">
+    <img src="/images/adicionar.png"  class="diminuir" alt="Vídeo 4" />
+  </div>
+</div>
+
+
+  
 </div>
 
 <script>
@@ -149,10 +179,6 @@
   });
 </script>
 
-<div class="chart-container1">
-    <div class="chart-title1">Distribuição do consumo</div>
-    <canvas id="consumoChart"></canvas>
-  </div>
 
   <script>
     const ctx = document.getElementById('consumoChart').getContext('2d');

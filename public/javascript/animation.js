@@ -4,15 +4,15 @@ ScrollReveal().reveal('.card', {
     origin: 'bottom',
     duration: 800,
     easing: 'ease-in-out',
-    reset: false
+    reset: true
   });
 
-  ScrollReveal().reveal('.container2', {
+  /* ScrollReveal().reveal('.container2', {
     interval: 450, 
     distance: '50px',
     origin: 'bottom',
     duration: 800,
     easing: 'ease-in-out',
-    reset: false
-  });
+    reset: true
+   }); */
   
